@@ -3,37 +3,27 @@
 	"id": "carpet-permission-support",
 	"version": "${version}",
 	"name": "carpet-permission-support",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "允许 carpet 的命令被权限管理",
 	"authors": [
-		"Me!"
+		"zehuajun"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/FairyLand-Team/carpet-permission-support",
+		"sources": "https://github.com/FairyLand-Team/carpet-permission-support"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/carpet-permission-support/icon.png",
-	"environment": "*",
+	"environment": "server",
 	"entrypoints": {
 		"main": [
 			{
 				"value": "top.zehuajun_fairyland_carpet_permission_support.Carpetpermissionsupport",
 				"adapter": "kotlin"
 			}
-		],
-		"client": [
-			{
-				"value": "top.zehuajun_fairyland_carpet_permission_support.CarpetpermissionsupportClient",
-				"adapter": "kotlin"
-			}
 		]
 	},
 	"mixins": [
-		"carpet-permission-support.mixins.json",
-		{
-			"config": "carpet-permission-support.client.mixins.json",
-			"environment": "client"
-		}
+		"carpet-permission-support.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
