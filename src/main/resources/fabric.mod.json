@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "carpet-permission-support",
 	"version": "${version}",
-	"name": "Example mod",
+	"name": "carpet-permission-support",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,28 +12,35 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/carpet-permission-support/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			{
+				"value": "top.zehuajun_fairyland_carpet_permission_support.Carpetpermissionsupport",
+				"adapter": "kotlin"
+			}
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			{
+				"value": "top.zehuajun_fairyland_carpet_permission_support.CarpetpermissionsupportClient",
+				"adapter": "kotlin"
+			}
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"carpet-permission-support.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "carpet-permission-support.client.mixins.json",
 			"environment": "client"
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.15.10",
-		"minecraft": "~1.20.6",
-		"java": ">=21",
-		"fabric-api": "*"
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
 	},
 	"suggests": {
 		"another-mod": "*"

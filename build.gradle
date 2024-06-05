@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
+  id "org.jetbrains.kotlin.jvm" version "2.0.0"
 }
 
 version = project.mod_version
@@ -22,7 +23,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"modid" {
+		"carpet-permission-support" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -38,7 +39,7 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 }
 
 processResources {
@@ -50,7 +51,13 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 17
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+	kotlinOptions {
+		jvmTarget = 17
+	}
 }
 
 java {
@@ -59,8 +66,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
