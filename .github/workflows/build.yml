@@ -12,7 +12,6 @@ jobs:
       matrix:
         # Use these Java versions
         java: [
-          22,
           21,    # Current Java LTS
           17,
         ]
